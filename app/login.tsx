@@ -1,22 +1,14 @@
-import {
-    View,
-    StyleSheet,
-    TextInput,
-    Text,
-    Alert,
-    ActivityIndicator,
-    TouchableOpacity,
-    KeyboardAvoidingView,
-    Image,
-    Platform,
-} from 'react-native';
+import { useLocalSearchParams } from 'expo-router';
+import { View, Text } from 'react-native';
 
-const Login = () => {
+const Page = () => {
+    const { type } = useLocalSearchParams<{ type: string}>();
+    console.log("Page | type | ", type);
     return (
         <View>
-            <Text>Login</Text>
+            <Text>Page</Text>
         </View>
     )
 }
 
-export default Login;
+export default Page;

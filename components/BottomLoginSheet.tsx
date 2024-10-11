@@ -1,6 +1,7 @@
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
 import { Link } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const BottomLoginSheet = () => {
@@ -16,12 +17,24 @@ const BottomLoginSheet = () => {
         style={[defaultStyles.btn, styles.btnDark]}
         asChild>
         <TouchableOpacity>
-          {/* <Ionicons name="mail" size={20} style={styles.btnIcon} color={'#fff'} /> */}
           <Image 
                 source={require('../assets/images/banorte.png')} 
                 style={[styles.btnIcon, { width: 20, height: 20 }]} 
             />
           <Text style={styles.btnDarkText}>Continuar con Banorte</Text>
+        </TouchableOpacity>
+      </Link>
+
+      <Link
+        href={{
+          pathname: '/login',
+          params: { type: 'login' },
+        }}
+        style={[defaultStyles.btn, styles.btnDark]}
+        asChild>
+        <TouchableOpacity>
+          <Ionicons name="walk" size={20} style={styles.btnIcon} color={'#fff'} />
+          <Text style={styles.btnDarkText}>Pase directo</Text>
         </TouchableOpacity>
       </Link>
     </View>
