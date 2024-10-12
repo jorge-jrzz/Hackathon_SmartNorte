@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "maya@latest",
-    "slug": "maya@latest",
+    "name": "Maya",
+    "slug": "Maya",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -15,14 +15,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.yorch.maya"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.yorch.maya"
-    },
+    }, 
     "web": {
       "bundler": "metro",
       "output": "static",
