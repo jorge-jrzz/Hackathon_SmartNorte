@@ -184,7 +184,7 @@ const Login = () => {
     setTimeout(() => {
       setLoading(false);
       setIsSignedIn(true);
-      router.replace('/(auth)/');
+      router.replace({ pathname: '/(auth)' });
     }, 1000); // Simula un retraso de 1 segundo
   };
 
@@ -230,39 +230,39 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  logo: {
-    width: 60,
-    height: 60,
-    alignSelf: 'center',
-    marginVertical: 80,
-  },
-  title: {
-    fontSize: 30,
-    marginBottom: 20,
-    fontWeight: 'bold',
-    alignSelf: 'center',
-  },
-  inputField: {
-    marginVertical: 4,
-    height: 50,
-    borderWidth: 1,
-    borderColor: Colors.primary,
-    borderRadius: 12,
-    padding: 10,
-    backgroundColor: '#fff',
-  },
-  btnPrimary: {
-    backgroundColor: Colors.primary,
-    marginVertical: 4,
-  },
-  btnPrimaryText: {
-    color: '#fff',
-    fontSize: 16,
-  },
-});
+    container: {
+      flex: 1,
+      padding: 20,
+    },
+    logo: {
+      width: 75,
+      height: 75,
+      alignSelf: 'center',
+      marginVertical: 80,
+    },
+    title: {
+      fontSize: 30,
+      marginBottom: 20,
+      fontWeight: 'bold',
+      alignSelf: 'center',
+    },
+    inputField: {
+      marginVertical: 4,
+      height: 50,
+      borderWidth: 1,
+      borderColor: Colors.brown,
+      borderRadius: 12,
+      padding: 10,
+      backgroundColor: '#fff',
+    },
+    btnPrimary: {
+      backgroundColor: Colors.brown,
+      marginVertical: 4,
+    },
+    btnPrimaryText: {
+      color: '#fff',
+      fontSize: 16,
+    },
+  });
 
 export default Login;

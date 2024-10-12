@@ -1,25 +1,37 @@
-// app/(auth)/index.tsx
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+// import { GestureHandlerRootView } from 'react-native-gesture-handler';
+// import { Drawer } from 'expo-router/drawer';
 
-const AuthHome = () => {
+import { Stack } from "expo-router";
+
+// const Layout = () => {
+//   return (
+//     <GestureHandlerRootView style={{ flex: 1 }}>
+//       <Drawer>
+//         <Drawer.Screen
+//           name="index" // This is the name of the page and must match the url from root
+//           options={{
+//             drawerLabel: 'Home',
+//             title: 'overview',
+//           }}
+//         />
+//       </Drawer>
+//     </GestureHandlerRootView>
+//   );
+// };
+
+// export default Layout;
+
+const Layout = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>¡Bienvenido a la sección autenticada!</Text>
-    </View>
+    <Stack>
+      <Stack.Screen
+        name="(drawer)" // This is the name of the page and must match the url from root
+        options={{
+          headerShown: false,
+        }}
+      />
+    </Stack>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  text: {
-    fontSize: 24,
-  },
-});
-
-export default AuthHome;
+export default Layout;
