@@ -26,9 +26,7 @@ const Layout = () => {
     <Stack>
       <Stack.Screen
         name="(drawer)" // This is the name of the page and must match the url from root
-        options={{
-          headerShown: false,
-        }}
+        options={{ headerShown: false, headerTitle: 'Home' }}
       />
     </Stack>
   );
