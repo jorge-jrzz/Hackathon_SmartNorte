@@ -1,37 +1,47 @@
-# Welcome to Maya App 👋
+# SmartNorte (frontend)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Una aplicación móvil que permite la interacción con agentes basados en un modelo de lenguaje de gran tamaño (Large Language Model).
 
-## Get started
+## Descripción General
 
-1. Install dependencies
+SmartNorte (Front) es una aplicación móvil desarrollada con React Native y Expo Go. Permite a los usuarios interactuar con agentes impulsados por un modelo de lenguaje avanzado, ofreciendo una experiencia conversacional de alta calidad. Además, integra la tecnología de Whisper para el reconocimiento de voz, facilitando la transcripción de audio a texto y permitiendo interacciones más naturales.
 
-   ```bash
-   npm install
-   ```
+### Características Principales
 
-2. Configure the iOS App (only MacOS)
+- Interacción con agentes inteligentes: Comunícate con agentes basados en modelos de lenguaje de última generación para obtener respuestas y asistencia en tiempo real.
+- Reconocimiento de voz con Whisper: Graba audio y convierte tu voz en texto utilizando la tecnología de Whisper, mejorando la accesibilidad y usabilidad.
+- Interfaz de usuario intuitiva: Diseñada para ofrecer una experiencia fluida y amigable.
+- Compatibilidad multiplataforma: Funciona en dispositivos iOS y Android gracias a React Native y Expo Go.
 
+### Tecnologías Utilizadas
+
+- React Native: Framework para el desarrollo de aplicaciones móviles nativas utilizando JavaScript y React.
+- Expo Go: Plataforma que simplifica el desarrollo y prueba de aplicaciones React Native.
+- OpenAI Whisper: Modelo de reconocimiento de voz para transcripción de audio a texto.
+
+### Instalación
+
+Sigue las instrucciones de instalación proporcionadas en el repositorio para configurar y ejecutar la aplicación en tu entorno local.
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/jorge-jrzz/maya_front.git
+```
+
+2. Instalar dependencias:
+```bash
+cd maya_front
+npm install
+```
+3. Configurar variables de entorno:
+- Crea un archivo .env en la raíz del proyecto.
+- Agrega tus claves y configuraciones necesarias, como la clave de API de OpenAI.
+
+4.	Iniciar la aplicación:
    ```bash
    npx expo prebuild --platform ios
    ```
 
-3. Start the app (only MacOS)
-
    ```bash
    npx expo run:ios
    ```
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
