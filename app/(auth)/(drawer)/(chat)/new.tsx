@@ -3,7 +3,8 @@ import MessageIdeas from '@/components/MessageIdeas';
 import MessageInput from '@/components/MessageInput';
 import { defaultStyles } from '@/constants/Styles';
 import { Message, Role } from '@/utils/Interfaces';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { FlashList } from '@shopify/flash-list';
 import {
   View,
@@ -12,15 +13,28 @@ import {
   Platform,
   Image,
 } from 'react-native';
+import { BlurView } from 'expo-blur';
+import LottieView from 'lottie-react-native';
+import Colors from '@/constants/Colors';
+import { AuthContext } from '@/contexts/AuthContext';
 
 const NewChatScreen = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [height, setHeight] = useState(0);
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [emailAddress, setEmailAddress] = useState('jorgeang33@gmail.com');
+  const [password, setPassword] = useState('password123');
+  const [loading, setLoading] = useState(false);
+  const { setIsSignedIn } = useContext(AuthContext);
+
+  const router = useRouter();
 
   const getCompletion = async (message: string) => {
     if (message.length === 0) {
       return;
     }
+
+    console.log('Obteniendo completado:', message);
 
     // Agrega el mensaje del usuario y un mensaje vacío del bot
     setMessages((prevMessages) => [
@@ -31,13 +45,27 @@ const NewChatScreen = () => {
 
     // Construye el cuerpo de la solicitud
     const requestBody = {
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: message }],
+      query: message,
     };
+
+    console.log('Cuerpo de la solicitud:', requestBody);
+
+    // Si la petición tiene la palabra transferencia o transferir se activa el estado de animación y al terminar se desactiva
+    if (message.includes('transferencia') || message.includes('transferir')) {
+      setShowAnimation(true);
+      setTimeout(() => {
+        setShowAnimation(false);
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+          setIsSignedIn(true);
+        }, 400); // Simula un retraso de 1 segundo
+      }, 4000); // Simula un retraso de 4 segundos
+    }
 
     try {
       // Realiza la solicitud a la API de OpenAI
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch('http://localhost:8000/multiagent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +82,7 @@ const NewChatScreen = () => {
 
       const data = await response.json();
 
-      const botMessageContent = data.choices[0].message.content;
+      const botMessageContent = data.message;
 
       // Actualiza el último mensaje (del bot) con la respuesta de OpenAI
       setMessages((prevMessages) => {
@@ -63,7 +91,7 @@ const NewChatScreen = () => {
         return updatedMessages;
       });
     } catch (error) {
-      console.error('Error al llamar a la API de OpenAI:', error);
+      console.log(error);
       // Maneja el error, por ejemplo, mostrando un mensaje al usuario
     }
   };
@@ -73,7 +101,18 @@ const NewChatScreen = () => {
     setHeight(height);
   };
 
+  const onAnimationFinish = () => {
+    setShowAnimation(false);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setIsSignedIn(true);
+      router.replace('/(auth)/'); // Asegúrate de que esta ruta existe
+    }, 400); // Simula un retraso de 1 segundo
+  };
+
   return (
+    <>
     <View style={defaultStyles.pageContainer}>
       <View style={{ flex: 1 }} onLayout={onLayout}>
         {messages.length === 0 && (
@@ -104,9 +143,29 @@ const NewChatScreen = () => {
         <MessageInput onShouldSend={getCompletion} />
       </KeyboardAvoidingView>
     </View>
-  );
-};
 
+  {showAnimation && (
+    <View style={StyleSheet.absoluteFill}>
+      {Platform.OS === 'ios' ? (
+        <BlurView intensity={40} tint="light" style={StyleSheet.absoluteFill}/>
+      ) : (
+      <View style={styles.overlay} />
+    )}
+    <View style={styles.animationContainer}>
+      <LottieView
+        source={require('@/assets/animations/faceid.json')}
+        autoPlay
+        loop={false}
+        onAnimationFinish={onAnimationFinish}
+        style={styles.animation}
+        speed={1.5}
+      />
+    </View>
+  </View>
+)}
+</>
+  );
+}
 const styles = StyleSheet.create({
   logoContainer: {
     alignSelf: 'center',
@@ -126,7 +185,29 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
   },
-  // Añade cualquier estilo adicional que necesites
+  blurContainer: {
+    flex: 1,
+    padding: 20,
+    margin: 16,
+    textAlign: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    borderRadius: 20,
+  },
+  animationContainer: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  animation: {
+    width: 100,
+    height: 100,
+    marginTop: -400, // Ajusta este valor según tus necesidades
+  },
+  overlay: {
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    ...StyleSheet.absoluteFillObject,
+  },
 });
 
 export default NewChatScreen;
@@ -134,7 +215,7 @@ export default NewChatScreen;
 
 // -----------------------------------
 
-// **** Con el modulo react-native-openai ****
+// ** Con el modulo react-native-openai **
 
 // // app/(auth)/(drawer)/(chat)/new.tsx
 // import ChatMessage from '@/components/ChatMessage';
