@@ -11,7 +11,7 @@ SplashScreen.preventAutoHideAsync();
 
 const InitialLayout = () => {
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
   });
   const { isSignedIn } = useContext(AuthContext);
   const segments = useSegments();

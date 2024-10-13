@@ -3,8 +3,8 @@ import { Text, ScrollView, TouchableOpacity, StyleSheet, View } from 'react-nati
 
 const PredefinedMessages = [
   { title: 'Conocer mi saldo', text: "Quiero conocer mi saldo" },
-  { title: 'Obtener una TDC', text: 'Qué tarjeta me conviene?' },
-  { title: 'Recommend a dish', text: "to impress a date who's a picky eater" },
+  { title: 'Obtener una TDC', text: '¿Qué tarjeta me conviene?' },
+  { title: 'Quiero invertir', text: "¿Dónde podria invertir?" },
 ];
 
 type Props = {

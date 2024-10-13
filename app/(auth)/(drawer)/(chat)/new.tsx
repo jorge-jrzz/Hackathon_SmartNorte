@@ -51,7 +51,7 @@ const NewChatScreen = () => {
     console.log('Cuerpo de la solicitud:', requestBody);
 
     // Si la petición tiene la palabra transferencia o transferir se activa el estado de animación y al terminar se desactiva
-    if (message.includes('transferencia') || message.includes('transferir')) {
+    if (message.includes('transferencia') || message.includes('transferir') || message.includes('Transferencia') || message.includes('Transferir')) {
       setShowAnimation(true);
       setTimeout(() => {
         setShowAnimation(false);
