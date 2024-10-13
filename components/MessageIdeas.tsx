@@ -2,8 +2,8 @@ import Colors from '@/constants/Colors';
 import { Text, ScrollView, TouchableOpacity, StyleSheet, View } from 'react-native';
 
 const PredefinedMessages = [
-  { title: 'Explain React Native', text: "like I'm five years old" },
-  { title: 'Suggest fun activites', text: 'for a family visting San Francisco' },
+  { title: 'Conocer mi saldo', text: "Quiero conocer mi saldo" },
+  { title: 'Obtener una TDC', text: 'Qué tarjeta me conviene?' },
   { title: 'Recommend a dish', text: "to impress a date who's a picky eater" },
 ];
 
