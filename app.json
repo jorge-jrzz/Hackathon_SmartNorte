@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Maya",
+    "name": "SmartNorte",
     "slug": "Maya",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,24 @@
     },
     "plugins": [
       "expo-router",
-      "expo-build-properties"
+      "expo-secure-store",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "16.6"
+          }
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
