@@ -22,3 +22,9 @@ expo-env.d.ts
 # native implementation
 android/
 ios/
+
+# .env file
+.env
+
+# dependencies 
+package-lock.json
