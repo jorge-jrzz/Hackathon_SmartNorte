@@ -12,20 +12,20 @@ const BottomLoginSheet = () => {
       <Link
         href={{
           pathname: '/login',
-          params: { type: 'register' },
+          params: { type: 'login' },
         }}
         style={[defaultStyles.btn, styles.btnDark]}
         asChild>
         <TouchableOpacity>
           <Image 
-                source={require('../assets/images/banorte.png')} 
+                source={require('@/assets/images/banorte.png')} 
                 style={[styles.btnIcon, { width: 20, height: 20 }]} 
             />
           <Text style={styles.btnDarkText}>Continuar con Banorte</Text>
         </TouchableOpacity>
       </Link>
 
-      <Link
+      {/* <Link
         href={{
           pathname: '/login',
           params: { type: 'login' },
@@ -36,7 +36,7 @@ const BottomLoginSheet = () => {
           <Ionicons name="walk" size={20} style={styles.btnIcon} color={'#fff'} />
           <Text style={styles.btnDarkText}>Pase directo</Text>
         </TouchableOpacity>
-      </Link>
+      </Link> */}
     </View>
   );
 };
