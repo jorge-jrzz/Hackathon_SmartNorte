@@ -35,7 +35,7 @@ const content = [
     fontColor: Colors.yellow,
   },
   {
-    title: 'Maya.',
+    title: 'SmartNorte.',
     bg: Colors.green,
     fontColor: Colors.pink,
   },

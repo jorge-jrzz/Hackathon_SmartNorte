@@ -1,25 +1,38 @@
 // app/(auth)/(drawer)/(chat)/new.tsx
+import MessageInput from '@/components/MessageInput';
+import { defaultStyles } from '@/constants/Styles';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Keyboard, KeyboardAvoidingView, Platform } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const NewChatScreen = () => {
+  const getCompletion = async (message: string) => {
+    console.log(message);
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Esta es la pantalla de Nuevo Chat</Text>
+    <View style={defaultStyles.pageContainer}>
+      <View style={{ flex: 1}}>
+        <Text>DUMMY Content</Text>
+        {/* <ScrollView>
+          {Array.from({length: 100}).map((_, index) => (
+            <Text key={index}>{index}</Text>
+          ))}
+        </ScrollView> */}
+      </View>
+      <KeyboardAvoidingView 
+      keyboardVerticalOffset={70}
+      style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        width: '100%'
+      }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <MessageInput onShouldSend={getCompletion}/>
+      </KeyboardAvoidingView>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  text: {
-    fontSize: 22,
-  },
-});
 
 export default NewChatScreen;

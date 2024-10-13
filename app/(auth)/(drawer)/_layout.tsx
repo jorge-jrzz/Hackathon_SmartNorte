@@ -80,7 +80,7 @@ const Layout = () => {
           name="(chat)/new"
           getId={() => Math.random().toString()}
           options={{
-            title: 'Maya',
+            title: 'SmartNorte',
             drawerIcon: () => (
               <View style={[styles.item, { backgroundColor: '#000' }]}>
                 <Image source={require('@/assets/images/logo_white.png')} style={styles.btnImage} />
