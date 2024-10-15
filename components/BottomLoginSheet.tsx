@@ -1,19 +1,49 @@
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
+<<<<<<< HEAD
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+=======
+import { Ionicons } from '@expo/vector-icons';
+import { Link } from 'expo-router';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+>>>>>>> fork/main
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const BottomLoginSheet = () => {
   const { bottom } = useSafeAreaInsets();
 
   return (
     <View style={[styles.container, { paddingBottom: bottom }]}>
+<<<<<<< HEAD
+=======
+      <TouchableOpacity style={[defaultStyles.btn, styles.btnLight]}>
+        <Ionicons name="logo-apple" size={14} style={styles.btnIcon} />
+        <Text style={styles.btnLightText}>Continue with Apple</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[defaultStyles.btn, styles.btnDark]}>
+        <Ionicons name="logo-google" size={16} style={styles.btnIcon} color={'#fff'} />
+        <Text style={styles.btnDarkText}>Continue with Google</Text>
+      </TouchableOpacity>
+      <Link
+        href={{
+          pathname: '/login',
+          params: { type: 'register' },
+        }}
+        style={[defaultStyles.btn, styles.btnDark]}
+        asChild>
+        <TouchableOpacity>
+          <Ionicons name="mail" size={20} style={styles.btnIcon} color={'#fff'} />
+          <Text style={styles.btnDarkText}>Sign up with email</Text>
+        </TouchableOpacity>
+      </Link>
+>>>>>>> fork/main
       <Link
         href={{
           pathname: '/login',
           params: { type: 'login' },
         }}
+<<<<<<< HEAD
         style={[defaultStyles.btn, styles.btnDark]}
         asChild>
         <TouchableOpacity>
@@ -37,6 +67,14 @@ const BottomLoginSheet = () => {
           <Text style={styles.btnDarkText}>Pase directo</Text>
         </TouchableOpacity>
       </Link> */}
+=======
+        style={[defaultStyles.btn, styles.btnOutline]}
+        asChild>
+        <TouchableOpacity>
+          <Text style={styles.btnDarkText}>Log in</Text>
+        </TouchableOpacity>
+      </Link>
+>>>>>>> fork/main
     </View>
   );
 };
@@ -71,8 +109,12 @@ const styles = StyleSheet.create({
     borderColor: Colors.grey,
   },
   btnIcon: {
+<<<<<<< HEAD
     marginRight: 12,
     paddingRight: 32,
+=======
+    paddingRight: 6,
+>>>>>>> fork/main
   },
 });
 export default BottomLoginSheet;
