@@ -1,43 +1,20 @@
 {
   "expo": {
-<<<<<<< HEAD
     "name": "SmartNorte",
     "slug": "Maya",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
-=======
-    "name": "Chatgpt",
-    "slug": "chatgpt",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "chatgpt",
->>>>>>> fork/main
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-<<<<<<< HEAD
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.yorch.maya"
-=======
-    "assetBundlePatterns": ["**/*"],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.supersimon.chatgpt"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.supersimon.chatgpt"
->>>>>>> fork/main
     },
     "web": {
       "bundler": "metro",
@@ -50,20 +27,8 @@
       [
         "expo-build-properties",
         {
-<<<<<<< HEAD
           "ios": {
             "deploymentTarget": "16.6"
-=======
-          "android": {
-            "minSdkVersion": 24,
-            "compileSdkVersion": 33,
-            "targetSdkVersion": 33,
-            "buildToolsVersion": "33.0.0",
-            "kotlinVersion": "1.6.20"
-          },
-          "ios": {
-            "deploymentTarget": "15.0"
->>>>>>> fork/main
           }
         }
       ],
@@ -74,12 +39,8 @@
           "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
           "isAccessMediaLocationEnabled": true
         }
-<<<<<<< HEAD
       ],
       "expo-font"
-=======
-      ]
->>>>>>> fork/main
     ],
     "experiments": {
       "typedRoutes": true

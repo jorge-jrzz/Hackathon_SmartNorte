@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import ChatMessage from '@/components/ChatMessage';
 import MessageIdeas from '@/components/MessageIdeas';
 import MessageInput from '@/components/MessageInput';
@@ -364,6 +363,3 @@ export default NewChatScreen;
 // });
 
 // export default NewChatScreen;
-=======
-export { default } from '@/components/ChatPage';
->>>>>>> fork/main

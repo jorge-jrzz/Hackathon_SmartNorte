@@ -15,47 +15,27 @@ import { ReText } from 'react-native-redash';
 
 const content = [
   {
-<<<<<<< HEAD
     title: "Gestiona tu dinero.",
-=======
-    title: "Let's create.",
->>>>>>> fork/main
     bg: Colors.lime,
     fontColor: Colors.pink,
   },
   {
-<<<<<<< HEAD
     title: "Opciones financieras.",
-=======
-    title: "Let's brainstorm.",
->>>>>>> fork/main
     bg: Colors.brown,
     fontColor: Colors.sky,
   },
   {
-<<<<<<< HEAD
     title: "Descubre servicios.",
-=======
-    title: "Let's discover.",
->>>>>>> fork/main
     bg: Colors.orange,
     fontColor: Colors.blue,
   },
   {
-<<<<<<< HEAD
     title: "Empieza a ahorrar.",
-=======
-    title: "Let's go.",
->>>>>>> fork/main
     bg: Colors.teal,
     fontColor: Colors.yellow,
   },
   {
-<<<<<<< HEAD
     title: 'SmartNorte.',
-=======
-    title: 'ChatGPT.',
->>>>>>> fork/main
     bg: Colors.green,
     fontColor: Colors.pink,
   },

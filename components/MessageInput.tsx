@@ -1,10 +1,6 @@
 import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
-<<<<<<< HEAD
 import { View, StyleSheet, Platform, Alert } from 'react-native';
-=======
-import { View, StyleSheet } from 'react-native';
->>>>>>> fork/main
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, {
   Extrapolation,
@@ -19,11 +15,8 @@ import { useRef, useState } from 'react';
 import { BlurView } from 'expo-blur';
 import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
-<<<<<<< HEAD
 import { Audio } from 'expo-av';
 import * as FileSystem from 'expo-file-system';
-=======
->>>>>>> fork/main
 
 const ATouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
@@ -37,12 +30,9 @@ const MessageInput = ({ onShouldSend }: Props) => {
   const expanded = useSharedValue(0);
   const inputRef = useRef<TextInput>(null);
 
-<<<<<<< HEAD
   const [isRecording, setIsRecording] = useState(false);
   const [recording, setRecording] = useState<Audio.Recording | null>(null);
 
-=======
->>>>>>> fork/main
   const expandItems = () => {
     expanded.value = withTiming(1, { duration: 400 });
   };
@@ -52,7 +42,6 @@ const MessageInput = ({ onShouldSend }: Props) => {
   };
 
   const expandButtonStyle = useAnimatedStyle(() => {
-<<<<<<< HEAD
     const opacityInterpolation = interpolate(
       expanded.value,
       [0, 1],
@@ -65,10 +54,6 @@ const MessageInput = ({ onShouldSend }: Props) => {
       [30, 0],
       Extrapolation.CLAMP
     );
-=======
-    const opacityInterpolation = interpolate(expanded.value, [0, 1], [1, 0], Extrapolation.CLAMP);
-    const widthInterpolation = interpolate(expanded.value, [0, 1], [30, 0], Extrapolation.CLAMP);
->>>>>>> fork/main
 
     return {
       opacity: opacityInterpolation,
@@ -77,16 +62,12 @@ const MessageInput = ({ onShouldSend }: Props) => {
   });
 
   const buttonViewStyle = useAnimatedStyle(() => {
-<<<<<<< HEAD
     const widthInterpolation = interpolate(
       expanded.value,
       [0, 1],
       [0, 100],
       Extrapolation.CLAMP
     );
-=======
-    const widthInterpolation = interpolate(expanded.value, [0, 1], [0, 100], Extrapolation.CLAMP);
->>>>>>> fork/main
     return {
       width: widthInterpolation,
       opacity: expanded.value,
@@ -103,7 +84,6 @@ const MessageInput = ({ onShouldSend }: Props) => {
     setMessage('');
   };
 
-<<<<<<< HEAD
   const startRecording = async () => {
     try {
       // Solicitar permisos de audio
@@ -225,14 +205,6 @@ const MessageInput = ({ onShouldSend }: Props) => {
       tint="extraLight"
       style={{ paddingBottom: bottom, paddingTop: 10 }}
     >
-=======
-  const onSelectCard = (text: string) => {
-    onShouldSend(text);
-  };
-
-  return (
-    <BlurView intensity={90} tint="extraLight" style={{ paddingBottom: bottom, paddingTop: 10 }}>
->>>>>>> fork/main
       <View style={styles.row}>
         <ATouchableOpacity onPress={expandItems} style={[styles.roundBtn, expandButtonStyle]}>
           <Ionicons name="add" size={24} color={Colors.grey} />
@@ -251,14 +223,8 @@ const MessageInput = ({ onShouldSend }: Props) => {
         </Animated.View>
 
         <TextInput
-<<<<<<< HEAD
           ref={inputRef}
           placeholder="Mensaje"
-=======
-          autoFocus
-          ref={inputRef}
-          placeholder="Message"
->>>>>>> fork/main
           style={styles.messageInput}
           onFocus={collapseItems}
           onChangeText={onChangeText}
@@ -270,17 +236,12 @@ const MessageInput = ({ onShouldSend }: Props) => {
             <Ionicons name="arrow-up-circle" size={24} color={Colors.grey} />
           </TouchableOpacity>
         ) : (
-<<<<<<< HEAD
           <TouchableOpacity onPress={isRecording ? stopRecording : startRecording}>
             <FontAwesome5
               name="microphone"
               size={24}
               color={isRecording ? Colors.green : Colors.grey}
             />
-=======
-          <TouchableOpacity>
-            <FontAwesome5 name="headphones" size={24} color={Colors.grey} />
->>>>>>> fork/main
           </TouchableOpacity>
         )}
       </View>
@@ -288,10 +249,7 @@ const MessageInput = ({ onShouldSend }: Props) => {
   );
 };
 
-<<<<<<< HEAD
 
-=======
->>>>>>> fork/main
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -321,7 +279,6 @@ const styles = StyleSheet.create({
     gap: 12,
   },
 });
-<<<<<<< HEAD
 
 export default MessageInput;
 
@@ -442,6 +399,3 @@ export default MessageInput;
 //     </BlurView>
 //   );
 // };
-=======
-export default MessageInput;
->>>>>>> fork/main
