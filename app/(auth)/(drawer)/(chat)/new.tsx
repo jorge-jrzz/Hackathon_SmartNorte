@@ -34,7 +34,7 @@ const NewChatScreen = () => {
       return;
     }
 
-    console.log('Obteniendo completado:', message);
+    console.log('Mensaje del usuario:', message);
 
     // Agrega el mensaje del usuario y un mensaje vacío del bot
     setMessages((prevMessages) => [
@@ -42,13 +42,6 @@ const NewChatScreen = () => {
       { content: message, role: Role.User },
       { content: '...', role: Role.Bot }, // Indicador de que el bot está escribiendo
     ]);
-
-    // Construye el cuerpo de la solicitud
-    const requestBody = {
-      query: message,
-    };
-
-    console.log('Cuerpo de la solicitud:', requestBody);
 
     // Si la petición tiene la palabra transferencia o transferir se activa el estado de animación y al terminar se desactiva
     if (message.includes('transferencia') || message.includes('transferir') || message.includes('Transferencia') || message.includes('Transferir')) {
@@ -63,13 +56,20 @@ const NewChatScreen = () => {
       }, 4000); // Simula un retraso de 4 segundos
     }
 
+    // Construye el cuerpo de la solicitud
+    const requestBody = {
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: message }],
+    };
+
+    
     try {
       // Realiza la solicitud a la API de OpenAI
-      const response = await fetch('http://localhost:8000/multiagent', {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY, // Usa la clave de API
+          'Authorization': 'Bearer ' + process.env.EXPO_PUBLIC_OPENAI_API_KEY
         },
         body: JSON.stringify(requestBody),
       });
@@ -82,7 +82,9 @@ const NewChatScreen = () => {
 
       const data = await response.json();
 
-      const botMessageContent = data.message;
+      console.log('Respuesta de OpenAI:', data);
+      
+      const botMessageContent = data.choices[0].message.content;
 
       // Actualiza el último mensaje (del bot) con la respuesta de OpenAI
       setMessages((prevMessages) => {

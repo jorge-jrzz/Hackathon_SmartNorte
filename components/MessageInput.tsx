@@ -178,13 +178,11 @@ const MessageInput = ({ onShouldSend }: Props) => {
       const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer AGREGAR API KEY', // Agrega tu API Key de OpenAI
+          'Authorization': 'Bearer ' + process.env.EXPO_PUBLIC_OPENAI_API_KEY
           // No agregues 'Content-Type', fetch establecerá el encabezado correctamente
         },
         body: formData,
       });
-
-      console.log('peticoin', response);
 
       if (!response.ok) {
         const errorData = await response.json();
